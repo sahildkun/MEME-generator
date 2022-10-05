@@ -33,13 +33,13 @@ function Meme() {
         focus:outline-none
         focus:border-purple-600
         '/>
-        <div className='grid '>
+        <div className='grid  '>
         <button className='bg-yellow-200  rounded
         border 
         
         my-5
         sm:bg-yellow-200
-        sm:w-[91rem]
+        sm:w-[89rem]
         sm:my-10
         '>
          GENERATE MEME
