@@ -46,3 +46,8 @@ background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
 .top {
   top: 0;
 }
+@media screen and (max-width: 480px) {
+  .bottom {
+    bottom: 200px;
+  }
+}
