@@ -110,8 +110,10 @@ function Meme() {
     
   
     ' />
-    <h2 className='absolute m-2 text-white text-3xl font-serif drop-shadow-lg  shadow-black'>{memeImage.firstName}</h2>
-    <h2 className='absolute bottom-1 text-white text-3xl font-serif drop-shadow-lg  shadow-black'>{memeImage.secondName}</h2>
+    <h2 className='meme--text'
+    id=''
+    >{memeImage.firstName}</h2>
+    <h2 className='meme--text bottom'id=''>{memeImage.secondName}</h2>
     
     </div>
    
