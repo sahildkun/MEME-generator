@@ -1,9 +1,45 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import Data from './Data';
+import './App.css'
 function Meme() {
+
+  const [memeImage , setMemeImage] = useState({
+
+    firstName: "",
+    secondName: "",
+    randomImage:"https://i.pinimg.com/736x/48/54/c2/4854c2cd8f0e69be5d0dd124662654f2.jpg"
+  });
+
+
+  function handleChange(event){
+
+    
+   setMemeImage((prevState)=>(
+   {
+      ...prevState,
+      [event.target.name]: [event.target.value]
+    }
+   ))
+  }
+  console.log(memeImage);
+
+    function handleClick() {
+        
+        
+        const datarray = Data.data.memes;
+        const url = datarray[Math.floor(Math.random() * 101)].url;
+         setMemeImage((prevState) => (
+         {
+             ...prevState,
+             randomImage: url
+          }
+         ));
+       
+        
+    }
   return (
     <>
-    <form action="" className=' mt-10 bg-white
+    <div action="" className=' mt-10 bg-white
     rounded-md
     shadow-xl
     border
@@ -19,7 +55,12 @@ function Meme() {
 
     
     '>
-        <input type="text" placeholder='enter first word' className=' border-gray-400 border-2 
+        <input type="text"
+        name='firstName'
+        value={memeImage.firstName}
+        onChange={handleChange}
+        placeholder='enter first word' 
+        className=' border-gray-400 border-2 
         rounded-md
         px-2
         focus:outline-none
@@ -27,14 +68,20 @@ function Meme() {
         
         
         '/>
-        <input type="text" placeholder='enter second word' className=' border-gray-400 border-2 
+        <input type="text" 
+        name='secondName'
+        onChange={handleChange}
+
+        value={memeImage.secondName}
+        placeholder='enter second word' 
+        className=' border-gray-400 border-2 
         rounded-md
         px-2
         focus:outline-none
         focus:border-purple-600
         '/>
         <div className='grid  '>
-        <button className='bg-yellow-200  rounded
+        <button onClick={handleClick} className='bg-yellow-200  rounded
         border 
         
         my-5
@@ -48,12 +95,27 @@ function Meme() {
         
         
     </div>
-    </form>
-    <div>
-        <button>
-
-        </button>
+   
     </div>
+    <div className='flex flex-auto justify-center mb-14 mt-16
+    
+    
+    '>
+   
+    
+    <img src={memeImage.randomImage} alt="" className='w-[300px]
+    h-[300px]
+    sm:h-[20rem]
+    w:w-auto
+    
+  
+    ' />
+    <h2 className='absolute m-2 text-white text-3xl font-serif drop-shadow-lg  shadow-black'>{memeImage.firstName}</h2>
+    <h2 className='absolute bottom-1 text-white text-3xl font-serif drop-shadow-lg  shadow-black'>{memeImage.secondName}</h2>
+    
+    </div>
+   
+    
     </>
   )
 }
